@@ -6,6 +6,6 @@ export class Course {
     code: string = '';
     duration: number = 0;
     rating: number = 0;
-    releaseDate: String = '';
+    releaseDate: Date = new Date;
     imageUrl: string = '';
 }
