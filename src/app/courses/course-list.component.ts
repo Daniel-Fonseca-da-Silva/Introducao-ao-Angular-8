@@ -8,16 +8,29 @@ import { CourseService } from "./course.service";
 })
 export class CourseListComponent implements OnInit {
 
-    courses: Course[] = [];
+    filteredCourses: Course[] = [];
+
+    _courses: Course[] = [];
+
+    _filterBy: string = ''; // _ indica que a variável irá ficar somente nesse elemento
 
     // Injetado course.service via injeção de dependência
     constructor(private courseService: CourseService) {}
 
     // ngOnInit Carregará course.service quando courselistcomponent for carregado
     ngOnInit(): void {
-       this.courses = this.courseService.retrieveAll();
+       this._courses = this.courseService.retrieveAll();
+       this.filteredCourses = this._courses;
     }
 
-    
+    set filter(value: string) {
+        this._filterBy = value;
+        this.filteredCourses = this._courses.filter((course) =>
+        course.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1);
+    }
+
+    get filter() {
+        return this._filterBy;
+    }
 
 }
