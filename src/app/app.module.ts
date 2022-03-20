@@ -9,6 +9,7 @@ import { StarComponent } from './stars/star.component';
 import { ReplacePipe } from './pipe/replace.pipe';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NotFound404Component } from './not-found-404/not-found-404.component';
+import { CourseInfoComponent } from './courses/course-info.component';
 
 @NgModule({
   declarations: [
@@ -17,19 +18,23 @@ import { NotFound404Component } from './not-found-404/not-found-404.component';
     StarComponent,
     ReplacePipe,
     NavBarComponent,
-    NotFound404Component
+    NotFound404Component,
+    CourseInfoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
-      // Rota padrão ou root ''
-      {
-        path: '', redirectTo: 'Courses', pathMatch: 'full'
-      },
       // Rota para o recurso
       {
         path: 'Courses', component: CourseListComponent
+      },
+      {
+        path: 'courses/info/:id', component: CourseInfoComponent
+      },
+        // Rota padrão ou root ''
+      {
+        path: '', redirectTo: 'Courses', pathMatch: 'full'
       },
       {
         // Rota ** quando outra rota não funcionar

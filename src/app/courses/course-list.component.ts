@@ -3,6 +3,7 @@ import { Course } from "./course";
 import { CourseService } from "./course.service";
 
 @Component({
+    // Não tem selector devido a rota !
     templateUrl: 'course-list.component.html'
 })
 export class CourseListComponent implements OnInit {
