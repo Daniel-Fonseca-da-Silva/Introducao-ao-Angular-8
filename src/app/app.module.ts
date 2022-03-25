@@ -4,20 +4,20 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NotFound404Component } from './not-found-404/not-found-404.component';
 import { CourseModule } from './courses/course.module';
+import { CoreModule } from './core/component/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
     NotFound404Component
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     CourseModule,
+    CoreModule,
     RouterModule.forRoot([
         // Rota padrão ou root ''
       {
